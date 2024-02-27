@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "256911193699",
+    "project_id": "yuefengproject",
+    "storage_bucket": "yuefengproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256911193699:android:265062e0c5cf42b5e82a56",
+        "android_client_info": {
+          "package_name": "com.example.yuefengproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxgTTYJvhgIuErvR15H7N6D3ROCTOaQ1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

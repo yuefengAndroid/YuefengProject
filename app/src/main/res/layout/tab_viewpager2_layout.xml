@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="androidx.lifecycle.MutableLiveData" />
+
+        <variable
+            name="pageAdapter"
+            type="androidx.viewpager2.adapter.FragmentStateAdapter" />
+
+        <variable
+            name="eventModel"
+            type="com.example.yuefengproject.data.model.EventModel" />
+
+        <variable
+            name="tabNum"
+            type="MutableLiveData&lt;Integer&gt;" />
+
+        <variable
+            name="tabTitle"
+            type="java.util.List&lt;String&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/chatTitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="?attr/colorPrimary"
+            android:gravity="center"
+            android:text="公  佈  欄"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/tabEventItems"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabEventItems"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:layout_constraintBottom_toTopOf="@+id/tvLine"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chatTitle"
+            app:tabIndicatorColor="#9A71E4"
+            app:tabIndicatorHeight="5dp"
+            app:currentTab="@={tabNum}"
+            app:setTab="@{vp2ProductPager}"
+            app:tabTitle="@{tabTitle}"
+            app:tabViewPager2Adapter="@{pageAdapter}"
+            app:tabMode="scrollable"
+            app:tabTextColor="#111111"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tvLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray_aaaaaa"
+            app:layout_constraintBottom_toBottomOf="@+id/tabEventItems"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2ProductPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLine" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
