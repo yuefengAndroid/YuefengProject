@@ -4,19 +4,18 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.yuefengproject.data.factory.MainHomeFactory
 import com.example.yuefengproject.data.model.MainHomeViewModel
 import com.example.yuefengproject.databinding.ActivityMainHomeBinding
 import com.example.yuefengproject.ui.events.EventsFragment
 import com.example.yuefengproject.ui.home.HomeFragment
 import com.example.yuefengproject.ui.my.MyFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.analytics.FirebaseAnalytics
 
 class MainHomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener  {
@@ -30,8 +29,9 @@ class MainHomeActivity : AppCompatActivity(), BottomNavigationView.OnNavigationI
         MyLog.setLogLevel(1)
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main_home)
-        val mainHomeFactory = MainHomeFactory(application)
-        mainModel = ViewModelProvider(this, mainHomeFactory).get(MainHomeViewModel::class.java)
+        // 使用內建的 AndroidViewModelFactory
+        mainModel = ViewModelProvider(this)[MainHomeViewModel::class.java]
+
         binding.apply {
             mainHomeModel = mainModel
             lifecycleOwner = this@MainHomeActivity
